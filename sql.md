@@ -5,7 +5,7 @@
 Pulls new 2017 sql server
 
 ```
-sudo docker pull mcr.microsoft.com/mssql/server:2017-latest
+$ sudo docker pull mcr.microsoft.com/mssql/server:2017-latest
 ```
 
 Creates sql db instance
@@ -17,7 +17,7 @@ $ docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=yourStrong(!)Password' -p 1433:1
 Change password
 
 ```
-sudo docker exec -it sql1 /opt/mssql-tools/bin/sqlcmd \
+$ sudo docker exec -it sql1 /opt/mssql-tools/bin/sqlcmd \
    -S localhost -U SA -P '<YourStrong!Passw0rd>' \
    -Q 'ALTER LOGIN SA WITH PASSWORD="<YourNewStrong!Passw0rd>"'
 ```
@@ -25,11 +25,11 @@ sudo docker exec -it sql1 /opt/mssql-tools/bin/sqlcmd \
 Connect to root
 
 ```
-sudo docker exec -it sql1 "bash"
+$ sudo docker exec -it sql1 "bash"
 ```
 
 Login
 
 ```
-/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '<YourNewStrong!Passw0rd>' // tshis uses the changed password
+$ /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '<YourNewStrong!Passw0rd>' // tshis uses the changed password
 ```
